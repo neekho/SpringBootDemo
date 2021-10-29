@@ -1,12 +1,16 @@
 package com.example.sample.controllers;
 
 
+import com.demo.models.person.Person;
+
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 public class BasicContoller {
@@ -34,6 +38,12 @@ public class BasicContoller {
 
     // http post method
 	//http://localhost:8080/send/person_info
+
+    @PostMapping(value = "/post/person", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE) {
+        public ResponseEntity<Object> postData(@RequestBody Person person){
+            return ResponseEntity.ok(person.getFirstName() + person.getCityName() + person.getAge());
+        }
+    }
     
 
 }
