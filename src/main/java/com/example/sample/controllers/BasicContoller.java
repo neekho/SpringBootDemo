@@ -40,14 +40,15 @@ public class BasicContoller {
     // http post method
 	//http://localhost:8080/send/person_info
 
-    @PostMapping(value = "/post/person", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE) {
-        public ResponseEntity<Object> postData(@RequestBody Person person){
+    @PostMapping(value = "/post/person", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE) 
+        public ResponseEntity<Object> postData(@RequestBody Person person) {
             return ResponseEntity.ok(person.getFirstName() + person.getCityName() + person.getAge());
+
         }
-    }
+    
 
     @DeleteMapping(value = "/delete/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> delete(@PathVariable String id){
+	public ResponseEntity<Object> delete(@PathVariable String id) {
 		return ResponseEntity.ok("deleting: " + id);
 	}
 	
