@@ -5,6 +5,7 @@ import com.demo.models.person.Person;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,6 +45,12 @@ public class BasicContoller {
             return ResponseEntity.ok(person.getFirstName() + person.getCityName() + person.getAge());
         }
     }
+
+    @DeleteMapping(value = "/delete/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Object> delete(@PathVariable String id){
+		return ResponseEntity.ok("deleting: " + id)
+	}
+	
     
 
 }
