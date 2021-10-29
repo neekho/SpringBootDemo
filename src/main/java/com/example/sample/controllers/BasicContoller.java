@@ -48,7 +48,7 @@ public class BasicContoller {
 
     @DeleteMapping(value = "/delete/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> delete(@PathVariable String id){
-		return ResponseEntity.ok("deleting: " + id)
+		return ResponseEntity.ok("deleting: " + id);
 	}
 	
     
